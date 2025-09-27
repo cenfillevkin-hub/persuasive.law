@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Persuasive.law - Legal Search Engine</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    .table-small { font-size: 0.85rem; border-collapse: collapse; }
+    .table-small th, .table-small td { border: none; }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm border-b">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
+            <span class="text-white font-bold text-lg">⚖️</span>
+          </div>
+          <h1 class="text-2xl font-bold text-gray-900">Persuasive.law</h1>
+        </div>
+        <nav class="hidden md:flex space-x-8">
+          <a href="#search" class="text-gray-600 hover:text-purple-600 font-medium">Search</a>
+          <a href="#resources" class="text-gray-600 hover:text-purple-600 font-medium">Resources</a>
+          <a href="#pricing" class="text-gray-600 hover:text-purple-600 font-medium">Pricing</a>
+        </nav>
+        <button class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">Sign In</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="gradient-bg text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-5xl font-bold mb-6">Legal Research Made Simple<br>for Everyone</h2>
+      <p class="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+        Access historical legal scenarios by entering facts of your case. Get instant answers to contract questions,
+        copyright issues, and business law matters.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+          Order full research on your issue
+        </button>
+        <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+          Watch Demo
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search Section -->
+  <section id="search" class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Search Legal Database</h3>
+        <p class="text-gray-600">Enter your conduct and select jurisdiction, practice area & document type to see actionable scenarios.</p>
+      </div>
+
+      <div class="bg-gray-50 rounded-2xl p-8">
+        <form class="space-y-6" onsubmit="handleSearch(event)">
+          <div class="relative">
+            <!-- Conduct search with datalist -->
+            <input list="conductsList" type="text" id="searchQuery" placeholder="e.g., 'Forming a competitor company', 'Soliciting customers'" class="w-full px-6 py-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" />
+            <datalist id="conductsList"></datalist>
+            <button type="submit" class="absolute right-3 top-3 bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+              🔍 Search
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <select id="practiceAreaSelect" class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
+              <option value="All Practice Areas">All Practice Areas</option>
+              <option value="Contract Law">Contract Law</option>
+              <option value="Employment Law">Employment Law</option>
+              <option value="Intellectual Property">Intellectual Property</option>
+              <option value="Business Formation">Business Formation</option>
+              <option value="Personal Injury">Personal Injury</option>
+              <option value="Real Estate">Real Estate</option>
+              <option value="Family Law">Family Law</option>
+            </select>
+
+            <select id="jurisdictionSelect" class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
+              <option value="All Jurisdictions">All Jurisdictions</option>
+              <option value="Illinois">Illinois</option>
+              <option value="Federal">Federal</option>
+              <option value="California">California</option>
+              <option value="New York">New York</option>
+              <option value="Texas">Texas</option>
+              <option value="Florida">Florida</option>
+            </select>
+
+            <select id="docTypeSelect" class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
+              <option value="All Document Types">All Document Types</option>
+              <option value="Case">Case</option>
+              <option value="Statute">Statute</option>
+              <option value="Regulation">Regulation</option>
+              <option value="Legal Form">Legal Form</option>
+            </select>
+          </div>
+<!-- Color Legend -->
+<div class="mt-4 flex flex-wrap gap-4 items-center">
+  <div class="flex items-center gap-2">
+    <span class="w-4 h-4 inline-block bg-green-600 rounded-sm"></span>
+    <span class="text-gray-700 text-sm">Enforceable / Reasonable Law Point</span>
+  </div>
+  <div class="flex items-center gap-2">
+    <span class="w-4 h-4 inline-block bg-green-300 rounded-sm"></span>
+    <span class="text-gray-700 text-sm">Fact changed, same law point (light green)</span>
+  </div>
+  <div class="flex items-center gap-2">
+    <span class="w-4 h-4 inline-block bg-red-600 rounded-sm"></span>
+    <span class="text-gray-700 text-sm">Unenforceable / Unreasonable Law Point</span>
+  </div>
+  <div class="flex items-center gap-2">
+    <span class="w-4 h-4 inline-block bg-red-300 rounded-sm"></span>
+    <span class="text-gray-700 text-sm">Fact changed, same unenforceable law point</span>
+  </div>
+  <div class="flex items-center gap-2">
+    <span class="w-4 h-4 inline-block bg-yellow-200 rounded-sm"></span>
+    <span class="text-gray-700 text-sm">Not Discussed / Ambiguous</span>
+  </div>
+</div>
+
+        </form>
+
+        <div id="resultsTable" class="mt-8 overflow-x-auto"></div>
+        <p id="noResultsMsg" class="mt-4 text-gray-600 italic hidden">No results match your filters.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Search actionable Facts, Not Law</h3>
+        <p class="text-gray-600">Enter your specific situation and find relevant legal precedents</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white p-6 rounded-xl card-hover">
+          <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">📝</div>
+          <h4 class="text-lg font-semibold mb-2">Contract Analysis</h4>
+          <p class="text-gray-600">Find similar contract disputes and enforcement outcomes</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl card-hover">
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">⚖️</div>
+          <h4 class="text-lg font-semibold mb-2">Case Precedents</h4>
+          <p class="text-gray-600">Access millions of court decisions labeled by professionals</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl card-hover">
+          <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">🔍</div>
+          <h4 class="text-lg font-semibold mb-2">Fact-Based Search</h4>
+          <p class="text-gray-600">Search by your specific facts, not legal terminology</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl card-hover">
+          <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">📊</div>
+          <h4 class="text-lg font-semibold mb-2">Legal Analytics</h4>
+          <p class="text-gray-600">Understand trends and outcomes in similar cases</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources Section -->
+  <section id="resources" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Traditional Legal Topics</h3>
+        <p class="text-gray-600">Quick access to the most generic legal issues</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <button class="text-left bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-xl hover:shadow-lg transition-all">
+          <h4 class="font-semibold text-gray-900 mb-2">📋 Contract Disputes</h4>
+          <p class="text-gray-600 text-sm">Breach of contract, enforcement, and remedies</p>
+        </button>
+        <button class="text-left bg-gradient-to-r from-blue-50 to-green-50 p-6 rounded-xl hover:shadow-lg transition-all">
+          <h4 class="font-semibold text-gray-900 mb-2">🏠 Real Estate Issues</h4>
+          <p class="text-gray-600 text-sm">Property disputes, landlord-tenant, and transactions</p>
+        </button>
+        <button class="text-left bg-gradient-to-r from-green-50 to-yellow-50 p-6 rounded-xl hover:shadow-lg transition-all">
+          <h4 class="font-semibold text-gray-900 mb-2">💼 Employment Law</h4>
+          <p class="text-gray-600 text-sm">Workplace disputes, discrimination, and wrongful termination</p>
+        </button>
+        <button class="text-left bg-gradient-to-r from-yellow-50 to-red-50 p-6 rounded-xl hover:shadow-lg transition-all">
+          <h4 class="font-semibold text-gray-900 mb-2">🚗 Personal Injury</h4>
+          <p class="text-gray-600 text-sm">Accidents, negligence, and damage claims</p>
+        </button>
+        <button class="text-left bg-gradient-to-r from-red-50 to-purple-50 p-6 rounded-xl hover:shadow-lg transition-all">
+          <h4 class="font-semibold text-gray-900 mb-2">👨‍👩‍👧‍👦 Family Law</h4>
+          <p class="text-gray-600 text-sm">Divorce, custody, and domestic relations</p>
+        </button>
+        <button class="text-left bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl hover:shadow-lg transition-all">
+          <h4 class="font-semibold text-gray-900 mb-2">🏢 Business Formation</h4>
+          <p class="text-gray-600 text-sm">Corporate structure, partnerships, and compliance</p>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center">
+              <span class="text-white font-bold">⚖️</span>
+            </div>
+            <h5 class="text-xl font-bold">Persuasive.law</h5>
+          </div>
+          <p class="text-gray-400">Legal research made simple. Decide facts, not law.</p>
+        </div>
+        <div>
+          <h6 class="font-semibold mb-4">Product</h6>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#" class="hover:text-white">Search Engine</a></li>
+            <li><a href="#" class="hover:text-white">Case Analytics</a></li>
+            <li><a href="#" class="hover:text-white">Legal Forms</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="font-semibold mb-4">Resources</h6>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#" class="hover:text-white">Legal Guide</a></li>
+            <li><a href="#" class="hover:text-white">Blog</a></li>
+            <li><a href="#" class="hover:text-white">Help Center</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6 class="font-semibold mb-4">Company</h6>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#" class="hover:text-white">About Us</a></li>
+            <li><a href="#" class="hover:text-white">Contact</a></li>
+            <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2024 Persuasive.law. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Ready-made conducts for autocomplete
+    const readyMadeConducts = [
+      "Forming a competitor company while having a non-compete signed",
+      "Soliciting customers in violation of non-solicitation agreement",
+      "Breach of contract",
+      "Misuse of confidential information",
+      "Termination disputes",
+      "Non-compete enforcement",
+      "Customer solicitation violation",
+      "Trade secret violation"
+    ];
+    const datalist = document.getElementById('conductsList');
+    readyMadeConducts.forEach(c => {
+      const option = document.createElement('option');
+      option.value = c;
+      datalist.appendChild(option);
+    });
+
+    // Table rendering with color-coded facts/law points
+    async function renderTable() {
+      const jurisdiction = document.getElementById('jurisdictionSelect').value;
+      const practiceArea = document.getElementById('practiceAreaSelect').value;
+      const docType = document.getElementById('docTypeSelect').value;
+      const query = document.getElementById('searchQuery').value.trim();
+      const tableDiv = document.getElementById('resultsTable');
+      const noResultsMsg = document.getElementById('noResultsMsg');
+      noResultsMsg.classList.add('hidden');
+
+      let data;
+      try {
+        const res = await fetch('/search', {
+	//const res = await fetch('http://localhost:3000/search', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query, jurisdiction, practiceArea, documentType: docType })
+        });
+        if (!res.ok) throw new Error('Server error');
+        data = await res.json();
+      } catch (err) {
+        tableDiv.innerHTML = `<p class="text-red-600">Error fetching data: ${err.message}</p>`;
+        return;
+      }
+
+      if (!data.length) {
+        noResultsMsg.classList.remove('hidden');
+        tableDiv.innerHTML = '';
+        return;
+      }
+
+      let html = '';
+      data.forEach(c => {
+        c.actionable_conduct.forEach((ac, idx) => {
+          html += `<h4 class="mt-8 mb-4 font-semibold text-gray-900">${ac} (Similarity: ${c.similarity[idx]}%)</h4>`;
+          html += `<table class="min-w-full bg-white table-small rounded-lg overflow-hidden mb-8">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="px-2 py-2">Scenario</th>
+                ${Object.keys(c.scenarios[idx].circumstances).map(k => `<th class="px-2 py-2">${k}</th>`).join('')}
+                <th class="px-2 py-2">Is Actionable?</th>
+                <th class="px-2 py-2">Citation</th>
+              </tr>
+            </thead>
+            <tbody>`;
+
+          c.scenarios.forEach(scenario => {
+            html += `<tr class="hover:bg-gray-50">
+              <td class="px-2 py-2 align-top">${scenario.scenario_name}</td>`;
+            Object.entries(scenario.circumstances).forEach(([key, val]) => {
+              const display = typeof val === 'object' ? val['fact-point'] : val;
+              const color = (val && val.color) ? val.color : 'transparent';
+              html += `<td class="px-2 py-2 align-top" style="background-color:${color}">${display}</td>`;
+            });
+            html += `<td class="px-2 py-2 align-top">${scenario.is_actionable}</td>`;
+            html += `<td class="px-2 py-2 align-top"><a href="${c.case.link}" target="_blank" rel="noopener" class="text-blue-600 underline">${c.case.citation}</a></td>`;
+            html += `</tr>`;
+          });
+          html += `</tbody></table>`;
+        });
+      });
+
+      tableDiv.innerHTML = html;
+      tableDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function handleSearch(event) {
+      event.preventDefault();
+      renderTable();
+    }
+
+    ['jurisdictionSelect','practiceAreaSelect','docTypeSelect'].forEach(id => {
+      document.getElementById(id).addEventListener('change', () => {
+        if (document.getElementById('resultsTable').querySelector('table')) renderTable();
+      });
+    });
+  </script>
+
+</body>
+</html>

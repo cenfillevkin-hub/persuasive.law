@@ -1,0 +1,149 @@
+{
+  "case": {
+    "title": "Reliable Fire Equipment Co. v. Arredondo",
+    "citation": "2011 IL 111871",
+    "link": "https://law.justia.com/cases/illinois/supreme-court/2011/111871.html",
+    "holding": "Covenants not to compete are enforceable if reasonable, judged by the totality of the circumstances.",
+    "reasoning": "Employer must show a legitimate business interest; factors include customer permanence, confidential information, and reasonable time/place restrictions.",
+    "conclusion": "Remanded to trial court to apply proper standard.",
+    "dicta": "Court rejected rigid tests in favor of a flexible totality-of-the-circumstances analysis.",
+    "jurisdiction": "Illinois",
+    "practice_area": ["Employment", "Contract Law"],
+    "document_type": "Case"
+  },
+  "actionable_conduct": [
+    "Forming a competitor company while having a non-compete signed",
+    "Soliciting customers in violation of non-solicitation agreement"
+  ],
+  "scenarios": [
+    {
+      "scenario_name": "Scenario 1",
+      "circumstances": {
+        "Consideration": {
+          "fact-point": "Each defendant signed a noncompetition agreement in exchange for employment.",
+          "law-point": "Good consideration"
+        },
+        "Tenure": "Arredondo was employed from 1980 until resignation in 2004; Garcia hired in 1998, terminated in 2004.",
+        "Termination": {
+          "fact-point": "Garcia was fired.",
+          "law-point": "Involuntary termination"
+        },
+        "Position / Customer Relations": {
+          "fact-point": "Defendants had customer contact and solicited sales. Court noted 'near-permanence of customer relationships' as factor.",
+          "law-point": "This is a Protectable Legitimate Business Interest"
+        },
+        "Trade Secret / Confidentiality": {
+          "fact-point": "Not discussed",
+          "law-point": "Irrelevant"
+        },
+        "Time Restriction": {
+          "fact-point": "One year after termination.",
+          "law-point": "Reasonable"
+        },
+        "Territorial Scope": {
+          "fact-point": "Illinois, Indiana, Wisconsin",
+          "law-point": "Reasonable"
+        },
+        "Relationships": {
+          "fact-point": "Employment relationships and employment contract",
+          "law-point": "Relevant"
+        },
+        "Blue Pencil": {
+          "fact-point": "Court refused blue-pencil, so the restrictive clause was preserved without a change.",
+          "law-point": "Severability clause unenforceable"
+        },
+        "Hardship": {
+          "fact-point": "Not discussed",
+          "law-point": "Irrelevant"
+        }
+      },
+      "is_actionable": "Yes"
+    },
+    {
+      "scenario_name": "Scenario 2",
+      "circumstances": {
+        "Consideration": {
+          "fact-point": "Each defendant signed a noncompetition agreement in exchange for employment.",
+          "law-point": "Good consideration"
+        },
+        "Tenure": "Arredondo was employed from 1980 until resignation in 2004; Garcia hired in 1998, terminated in 2004.",
+        "Termination": {
+          "fact-point": "Arredondo resigned.",
+          "law-point": "Voluntary termination"
+        },
+        "Position / Customer Relations": {
+          "fact-point": "Defendants had customer contact and solicited sales. Court noted 'near-permanence of customer relationships' as factor.",
+          "law-point": "This is a Protectable Legitimate Business Interest"
+        },
+        "Trade Secret / Confidentiality": {
+          "fact-point": "Not discussed",
+          "law-point": "Irrelevant"
+        },
+        "Time Restriction": {
+          "fact-point": "One year after termination.",
+          "law-point": "Reasonable"
+        },
+        "Territorial Scope": {
+          "fact-point": "Illinois, Indiana, Wisconsin",
+          "law-point": "Reasonable"
+        },
+        "Relationships": {
+          "fact-point": "Employment relationships and employment contract",
+          "law-point": "Relevant"
+        },
+        "Blue Pencil": {
+          "fact-point": "Court refused blue-pencil, so the restrictive clause was preserved without a change.",
+          "law-point": "Severability clause unenforceable"
+        },
+        "Hardship": {
+          "fact-point": "Not discussed",
+          "law-point": "Irrelevant"
+        }
+      },
+      "is_actionable": "Yes"
+    },
+    {
+      "scenario_name": "Scenario 3",
+      "circumstances": {
+        "Consideration": {
+          "fact-point": "Each defendant signed a noncompetition agreement in exchange for employment.",
+          "law-point": "Good consideration"
+        },
+        "Tenure": "Arredondo was employed from 1980 until resignation in 2004; Garcia hired in 1998, terminated in 2004.",
+        "Termination": {
+          "fact-point": "Arredondo resigned.",
+          "law-point": "Voluntary termination"
+        },
+        "Position / Customer Relations": {
+          "fact-point": "Defendants had customer contact and solicited sales. Court noted 'near-permanence of customer relationships' as factor.",
+          "law-point": "This is a Protectable Legitimate Business Interest"
+        },
+        "Trade Secret / Confidentiality": {
+          "fact-point": "If there was access to confidential information.",
+          "law-point": "Relevant"
+        },
+        "Time Restriction": {
+          "fact-point": "One year after termination.",
+          "law-point": "Reasonable"
+        },
+        "Territorial Scope": {
+          "fact-point": "Illinois, Indiana, Wisconsin",
+          "law-point": "Reasonable"
+        },
+        "Relationships": {
+          "fact-point": "Employment relationships and employment contract",
+          "law-point": "Relevant"
+        },
+        "Blue Pencil": {
+          "fact-point": "Court refused blue-pencil, so the restrictive clause was preserved without a change.",
+          "law-point": "Severability clause unenforceable"
+        },
+        "Hardship": {
+          "fact-point": "Not discussed",
+          "law-point": "Irrelevant"
+        }
+      },
+      "is_actionable": "Yes"
+    }
+  ]
+}
