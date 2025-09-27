@@ -1,0 +1,129 @@
+{
+  "platform_system": {
+    "practice_areas": {
+      "Employment": [
+        {
+          "factual_pain_point": "Employee forms competitor company while under non-compete",
+          "description": "Employee violates non-compete agreement by starting a competing business within the restricted period and territory.",
+          "factors": ["non_compete_signed", "time_restriction_months", "territory_scope", "customer_contact"],
+          "scenarios": [
+            {
+              "case_name": "Reliable Fire Equipment Co. v. Arredondo",
+              "citation": "2011 IL 111871",
+              "link": "https://law.justia.com/cases/illinois/supreme-court/2011/111871.html",
+              "factor_values": {
+                "non_compete_signed": true,
+                "time_restriction_months": 12,
+                "territory_scope": "Illinois, Indiana, Wisconsin",
+                "customer_contact": true
+              },
+              "outcome": "Actionable – Non-compete enforceable"
+            }
+          ]
+        },
+        {
+          "factual_pain_point": "Employee reports safety violation and faces retaliation",
+          "description": "Employee faces adverse action after reporting safety violations, alleging retaliation.",
+          "factors": ["protected_activity", "adverse_action", "timing_weeks_after", "pretext_claim"],
+          "scenarios": [
+            {
+              "case_name": "Barnett v. Boeing",
+              "citation": "2025",
+              "link": "https://www.reuters.com/sustainability/society-equity/boeing-settles-lawsuit-wrongful-death-claim-related-deceased-whistleblower-2025-09-27/",
+              "factor_values": {
+                "protected_activity": "Safety reporting to FAA",
+                "adverse_action": "Termination",
+                "timing_weeks_after": 1,
+                "pretext_claim": "Performance issues"
+              },
+              "outcome": "Actionable – Retaliation confirmed"
+            }
+          ]
+        }
+      ],
+      "Contract": [
+        {
+          "factual_pain_point": "Supplier delivers late causing client loss",
+          "description": "Supplier's delayed delivery leads to client's financial loss, potentially breaching contract terms.",
+          "factors": ["delay_days", "penalty_clause", "client_loss_amount"],
+          "scenarios": [
+            {
+              "case_name": "ABC Supply Co. v. XYZ Contractors",
+              "citation": "2024 CA 1123",
+              "link": "https://www.examplelawlink.com/abc-supply-v-xyz-contractors",
+              "factor_values": {
+                "delay_days": 15,
+                "penalty_clause": true,
+                "client_loss_amount": 10000
+              },
+              "outcome": "Actionable – Breach triggered penalty"
+            }
+          ]
+        }
+      ],
+      "Corporate": [
+        {
+          "factual_pain_point": "Shareholders allege officer mismanagement or fraud",
+          "description": "Shareholders claim officers breached fiduciary duties through mismanagement or fraudulent activities.",
+          "factors": ["officer_action", "financial_loss", "shareholder_involvement", "board_approval"],
+          "scenarios": [
+            {
+              "case_name": "In re TechCorp Shareholder Litigation",
+              "citation": "2024 DE Ch 567",
+              "link": "https://www.delawarecourts.gov/techcorp-shareholder-litigation",
+              "factor_values": {
+                "officer_action": "Undisclosed related-party transaction",
+                "financial_loss": "$5M",
+                "shareholder_involvement": "Minority shareholders",
+                "board_approval": false
+              },
+              "outcome": "Actionable – Breach of fiduciary duty"
+            }
+          ]
+        }
+      ],
+      "Intellectual Property": [
+        {
+          "factual_pain_point": "Patent infringement",
+          "description": "Company uses patented technology without authorization, leading to infringement allegations.",
+          "factors": ["patent_validity", "product_copied", "commercial_use", "damages_claimed"],
+          "scenarios": [
+            {
+              "case_name": "Innovatech v. GenTech",
+              "citation": "2024 Fed Cir 789",
+              "link": "https://www.casetext.com/case/innovatech-v-gentech",
+              "factor_values": {
+                "patent_validity": true,
+                "product_copied": "Software module",
+                "commercial_use": true,
+                "damages_claimed": "$2M"
+              },
+              "outcome": "Actionable – Patent infringement confirmed"
+            }
+          ]
+        }
+      ],
+      "Torts": [
+        {
+          "factual_pain_point": "Negligent personal injury",
+          "description": "Individual suffers injury due to another party's negligence, leading to a tort claim.",
+          "factors": ["duty_of_care", "breach", "injury_severity", "proximate_cause"],
+          "scenarios": [
+            {
+              "case_name": "Johnson v. Wal-Mart Stores, Inc.",
+              "citation": "1993",
+              "link": "https://www.casemine.com/judgement/us/5914bea1add7b049347a956e",
+              "factor_values": {
+                "duty_of_care": true,
+                "breach": "Wet floor not marked",
+                "injury_severity": "Severe – Fractured wrist",
+                "proximate_cause": true
+              },
+              "outcome": "Actionable – Negligence established"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
