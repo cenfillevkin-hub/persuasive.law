@@ -4,7 +4,8 @@ import path from 'path';
 import cors from 'cors';
 
 const app = express();
-const PORT = 3000;
+//const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Enable CORS and JSON parsing
 app.use(cors());
