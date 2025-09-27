@@ -2,20 +2,30 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import cors from 'cors';
+import { fileURLToPath } from 'url';
 
 const app = express();
-//const PORT = 3000;
 const PORT = process.env.PORT || 3000;
+
+// __dirname workaround for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Enable CORS and JSON parsing
 app.use(cors());
 app.use(express.json());
 
 // Serve frontend folder
-app.use(express.static(path.join('../frontend')));
+const frontendPath = path.join(__dirname, '../frontend');
+app.use(express.static(frontendPath));
+
+// Always serve index.html on root
+app.get('/', (req, res) => {
+  res.sendFile(path.join(frontendPath, 'index.html'));
+});
 
 // Path to data file
-const dataPath = path.join('../data/case_1.json');
+const dataPath = path.join(__dirname, '../data/case_1.json');
 
 // Function to generate color based on law-point + fact-point
 function getColor(factPoint, lawPoint) {
@@ -25,23 +35,18 @@ function getColor(factPoint, lawPoint) {
 
   const law = (lawPoint || '').toLowerCase();
 
-  // Red light law-points
   const isRed =
     law.includes('unenforceable') ||
     law.includes('unreasonable') ||
     law.includes('involuntary termination');
 
-  // Green law-points
   const isGreen = law.includes('voluntary termination');
 
-  // Default green for other actionable
   const baseColor = isRed ? '#f87171' : isGreen ? '#bbf7d0' : '#4ade80';
 
-  // Add subtle tone variation if fact-point changes
   const offset = Math.min(factPoint.length % 30, 30);
   const shadeOffset = factPoint.length % 2 === 0 ? offset : -offset;
 
-  // Function to lighten/darken hex color
   const adjustHex = (hex, percent) => {
     const num = parseInt(hex.slice(1), 16);
     let r = (num >> 16) + percent;
@@ -83,7 +88,6 @@ app.post('/search', (req, res) => {
     return c.actionable_conduct.some(ac => ac.toLowerCase().includes(qLower));
   });
 
-  // Compute similarity and apply color coding
   results = results.map(c => {
     const similarity = c.actionable_conduct.map(ac => {
       if (!query) return 0;
@@ -93,7 +97,6 @@ app.post('/search', (req, res) => {
       return Math.round((count / words.length) * 100);
     });
 
-    // Apply color coding per circumstance
     c.scenarios.forEach(scenario => {
       Object.entries(scenario.circumstances).forEach(([key, val]) => {
         if (typeof val === 'object') {
@@ -111,5 +114,5 @@ app.post('/search', (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
